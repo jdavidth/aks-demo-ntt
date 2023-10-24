@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pagina Web de Ejemplo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('https://www.nttdata.com/global/en/-/media/assets/images/sns_share.png?rev=c91262764875450b8b7d7bde19dd9478');
+      background-size: cover;
+      background-position: center center;
+      font-family: Arial, sans-serif;
+    }
+    
+    .navbar {
+      background-color: rgb(0, 47, 128);
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+    
+    .navbar a {
+      float: left;
+      color: #fff;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    
+    .navbar a:hover {
+      background-color: #555;
+    }
+    
+    .content {
+      padding: 20px;
+      color: #333;
+      text-align: center;
+      margin-top: 100px;
+    }
+    
+    .text-animation {
+      position: relative;
+      display: inline-block;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    
+    .text-animation span {
+      position: relative;
+      opacity: 0;
+      animation: textAnimation 4s infinite;
+      color: black;
+    }
+    
+    @keyframes textAnimation {
+      0% {
+        opacity: 0;
+        transform: translateY(0);
+      }
+      25% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 1;
+      }
+      75% {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(0);
+      }
+    }
+    
+    footer {
+      background-color: rgb(0, 47, 128);;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="#">Inicio</a>
+    <a href="#">Servicios</a>
+    <a href="#">Acerca de</a>
+    <a href="#">Contacto</a>
+  </div>
+  
+  <div class="content">
+    <p style="color: rgb(1, 53, 1);">Demo AKS NTT </p>
+    
+    <div class="text-animation">
+      <span>C</span>
+      <span>u</span>
+      <span>r</span>
+      <span>s</span>
+      <span>o</span>
+      <span> </span>
+      <span>A</span>
+      <span>K</span>
+      <span>S</span>
+    </div>
+  </div>
+  
+  <footer>
+    NTT DATA
+  </footer>
+  
+  <script>
+    window.onload = function() {
+      var textSpans = document.querySelectorAll('.text-animation span');
+      
+      for (var i = 0; i < textSpans.length; i++) {
+        var textSpan = textSpans[i];
+        textSpan.style.animationDelay = (i * 
+        0.2) + 's';
+}
+}
+</script>
+
+</body>
+</html>

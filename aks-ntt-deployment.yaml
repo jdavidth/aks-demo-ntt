@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-test-ntt
+  namespace: demo-aks-ntt  
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-test-ntt
+  template:
+    metadata:
+      labels:
+        app: web-test-ntt
+    spec:
+      nodeSelector:
+        "kubernetes.io/os": linux
+      containers:
+      - name: web-test-ntt
+        image: jdavidtamayoh/demoak8s:v0.1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 252Mi
+        ports:
+        - containerPort: 80
+      - image: jdavidtamayoh/hola-mundo:v0.1
+        name: hello-sr  
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-test-ntt
+  namespace: demo-aks-ntt 
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: web-test-ntt
